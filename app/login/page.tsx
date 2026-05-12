@@ -156,12 +156,12 @@ export default function LoginPage() {
         </div>
 
         <div ref={welcomeRef} className="text-center mb-8 md:mb-12">
-          <h1 className="text-gold font-serif text-2xl md:text-3xl uppercase tracking-[0.15em] md:tracking-[0.2em] mb-3 md:mb-4 glow drop-shadow-2xl">
-            Assalamu Alaikum
+          <h1 className="text-gold font-serif text-3xl md:text-4xl mb-3 md:mb-4 glow drop-shadow-2xl" dir="rtl">
+            السلام علیکم
           </h1>
           <div className="w-10 md:w-12 h-[1px] bg-gold/40 mx-auto mb-4 md:mb-6" />
-          <p className="text-foreground/80 font-light leading-relaxed text-xs md:text-sm max-w-xs md:max-w-sm mx-auto uppercase tracking-wider md:tracking-widest italic px-4">
-            {authConfig.welcome_message.replace("Assalamu Alaikum — ", "")}
+          <p className="text-foreground/80 font-light leading-relaxed text-sm md:text-base max-w-xs md:max-w-sm mx-auto px-4" dir="rtl">
+            {authConfig.welcome_message.replace("السلام علیکم — ", "")}
           </p>
         </div>
 
