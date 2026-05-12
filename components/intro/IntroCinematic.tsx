@@ -188,7 +188,7 @@ export default function IntroCinematic({ onComplete }: { onComplete: () => void 
           
           <EvolutionParticles phase={phase} progress={progress} />
 
-          <EffectComposer disableNormalPass>
+          <EffectComposer>
             <Bloom luminanceThreshold={0.2} mipmapBlur intensity={2.0} />
             <ChromaticAberration blendFunction={BlendFunction.NORMAL} offset={new THREE.Vector2(0.003, 0.003)} />
           </EffectComposer>
