@@ -1,127 +1,204 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
-  return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-background">
+  const containerRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Parallax effects for Scrollytelling
+  const yText = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const opacityText = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scaleText = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+
+  useGSAP(() => {
+    // Self-drawing SVG animation triggered by scroll
+    if (svgRef.current) {
+      const paths = svgRef.current.querySelectorAll("path");
       
-      {/* 1. Star & Subtle Gradient Background with Slow Zoom */}
+      gsap.set(paths, { strokeDasharray: 1000, strokeDashoffset: 1000 });
+      
+      gsap.to(paths, {
+        strokeDashoffset: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom center",
+          scrub: 1.5,
+        }
+      });
+    }
+
+    // Floating glass buttons
+    gsap.to(".glass-btn", {
+      y: -10,
+      duration: 2,
+      ease: "sine.inOut",
+      yoyo: true,
+      repeat: -1,
+      stagger: 0.2
+    });
+  }, { scope: containerRef });
+
+  return (
+    <section ref={containerRef} className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-background">
+      
+      {/* ─── Ambient Scrollytelling Background (SVG Self-Drawing) ─── */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center opacity-15 pointer-events-none mix-blend-color-dodge">
+        <svg ref={svgRef} width="800" height="800" viewBox="0 0 100 100" className="absolute w-[150vw] md:w-[100vw] h-auto max-w-none opacity-40">
+          {/* Islamic Star Pattern Path */}
+          <path 
+            d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z M50 20 L65 35 L80 50 L65 65 L50 80 L35 65 L20 50 L35 35 Z" 
+            fill="none" 
+            stroke="#d4af37" 
+            strokeWidth="0.2" 
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path 
+            d="M50 10 L55 45 L90 50 L55 55 L50 90 L45 55 L10 50 L45 45 Z" 
+            fill="none" 
+            stroke="#ffffff" 
+            strokeWidth="0.1" 
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+
       <div className="absolute inset-0 z-0 bg-transparent animate-slow-zoom">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(212,175,55,0.1)_0%,_transparent_70%)]" />
-        
-        {/* Subtle Star Pattern 1 */}
-        <div 
-           className="absolute inset-0 opacity-20" 
-           style={{
-             backgroundImage: "radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)",
-             backgroundSize: "60px 60px" 
-           }} 
-        />
-        {/* Subtle Star Pattern 2 (Gold tinted) */}
-        <div 
-           className="absolute inset-0 opacity-20" 
-           style={{
-             backgroundImage: "radial-gradient(rgba(212,175,55,0.6) 2px, transparent 2px)",
-             backgroundSize: "110px 110px",
-             backgroundPosition: "30px 30px"
-           }} 
-        />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(212,175,55,0.08)_0%,_transparent_60%)]" />
       </div>
       
-      {/* Content */}
-      <div className="z-10 flex flex-col items-center justify-center px-6 md:p-8 text-center relative">
+      {/* ─── Content ─── */}
+      <motion.div 
+        style={{ y: yText, opacity: opacityText, scale: scaleText }}
+        className="z-10 flex flex-col items-center justify-center px-6 md:p-8 text-center relative"
+      >
         
-        {/* Decorative top element — like an iOS app icon feel */}
+        {/* Glassmorphic Calligraphy Icon */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="mb-6 md:mb-8"
+          initial={{ opacity: 0, scale: 0.8, rotateX: 90 }}
+          animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-6 md:mb-10 perspective-1000"
         >
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-[22px] md:rounded-[28px] bg-gold/10 border border-gold/30 flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.2)] animate-breathe">
-            <span className="text-gold text-2xl md:text-3xl font-serif">ا</span>
+          <div className="
+            relative w-20 h-20 md:w-28 md:h-28 
+            rounded-3xl md:rounded-[32px] 
+            bg-white/5 backdrop-blur-2xl 
+            border border-gold/40 
+            flex items-center justify-center 
+            shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_0_20px_rgba(212,175,55,0.2)] 
+            animate-breathe
+            hover:border-gold/80 transition-colors duration-500
+            transform-gpu
+          ">
+            <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-transparent rounded-[inherit] pointer-events-none" />
+            <span className="text-gold text-4xl md:text-5xl font-serif drop-shadow-2xl">ا</span>
           </div>
         </motion.div>
 
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-           className="relative inline-block overflow-hidden pb-4"
+           initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+           className="relative inline-block overflow-visible pb-4"
         >
-          {/* Main Heading */}
-           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif text-gold glow tracking-widest uppercase relative z-10 px-2 md:px-4 leading-tight">
-             The Legacy<br className="sm:hidden" /> Continues
+           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white tracking-widest uppercase relative z-10 px-2 md:px-4 leading-tight font-light mix-blend-screen">
+             The Legacy<br className="sm:hidden" /> <span className="text-gold italic glow font-medium">Continues</span>
            </h1>
            
-           {/* Gold Light Sweep Animation over the text */}
-           <div className="absolute top-0 -bottom-4 h-full w-[40%] z-20 block bg-gradient-to-r from-transparent via-gold/80 to-transparent pointer-events-none mix-blend-color-dodge opacity-60 animate-gold-sweep" />
+           <div className="absolute top-0 -bottom-4 h-full w-[30%] z-20 block bg-gradient-to-r from-transparent via-gold/80 to-transparent pointer-events-none mix-blend-color-dodge opacity-70 animate-gold-sweep" />
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 1 }}
-          className="mt-4 md:mt-6 max-w-sm md:max-w-2xl text-[11px] sm:text-xs md:text-base text-foreground/50 tracking-widest uppercase leading-relaxed md:leading-loose px-4"
+          className="mt-6 md:mt-8 max-w-sm md:max-w-3xl text-xs sm:text-sm md:text-lg text-foreground/60 tracking-[0.3em] uppercase leading-relaxed px-4 font-light"
         >
           Discover the profound history, the people, and the enduring moments of our Khandaan.
         </motion.p>
 
-        {/* iOS-style CTA Buttons */}
+        {/* Micro-interaction Glassmorphic Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 1.5 }}
-          className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-8 sm:px-0"
+          className="mt-10 md:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-8 sm:px-0"
         >
           <Link
             href="/family-tree"
             className="
+              glass-btn relative overflow-hidden
               flex items-center justify-center gap-2
-              py-3.5 px-8 
-              bg-gold text-black 
-              font-serif uppercase tracking-[0.15em] text-[11px] md:text-xs
+              py-4 px-10 
+              bg-gold/10 backdrop-blur-xl
+              border border-gold/50
+              text-gold 
+              font-serif uppercase tracking-[0.2em] text-[11px] md:text-xs
               rounded-full
-              shadow-[0_0_25px_rgba(212,175,55,0.3)]
-              hover:shadow-[0_0_40px_rgba(212,175,55,0.5)]
-              hover:bg-gold/90
+              shadow-[0_0_30px_rgba(212,175,55,0.2)]
+              hover:shadow-[0_0_50px_rgba(212,175,55,0.6)]
+              hover:bg-gold/20
+              hover:scale-105
               active:scale-95
-              transition-all duration-300
+              transition-all duration-500
+              group
             "
           >
-            Explore Family Tree
+            <span className="relative z-10">Explore Tree</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-gold-sweep" />
           </Link>
+
           <Link
             href="/timeline"
             className="
+              glass-btn relative overflow-hidden
               flex items-center justify-center gap-2
-              py-3.5 px-8 
-              bg-transparent text-gold
-              border border-gold/30
-              font-serif uppercase tracking-[0.15em] text-[11px] md:text-xs
+              py-4 px-10 
+              bg-white/5 backdrop-blur-xl
+              border border-white/20
+              text-white
+              font-serif uppercase tracking-[0.2em] text-[11px] md:text-xs
               rounded-full
-              hover:bg-gold/10
-              hover:border-gold/50
+              hover:bg-white/10
+              hover:border-white/40
+              hover:scale-105
               active:scale-95
-              transition-all duration-300
+              transition-all duration-500
+              group
             "
           >
-            View Timeline
+            <span className="relative z-10">View Timeline</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-gold-sweep" />
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
 
-      {/* Scroll indicator - desktop only */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 1 }}
-        className="absolute bottom-8 md:bottom-12 z-10 hidden md:flex flex-col items-center gap-2"
+        className="absolute bottom-10 z-10 flex flex-col items-center gap-3"
       >
-        <span className="text-[9px] uppercase tracking-[0.3em] text-foreground/30">Scroll</span>
-        <div className="w-[1px] h-8 bg-gradient-to-b from-gold/40 to-transparent" />
+        <span className="text-[9px] uppercase tracking-[0.4em] text-gold/60 font-light">Scroll to Discover</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent animate-pulse-gold" />
       </motion.div>
     </section>
   );
