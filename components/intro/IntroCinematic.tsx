@@ -109,6 +109,16 @@ function EvolutionParticles({ phase, progress }: { phase: number, progress: numb
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
 
+    // Smoothly fade in particles ONLY after Ayah (phase > 1)
+    if (meshRef.current.material) {
+      const mat = meshRef.current.material as THREE.MeshBasicMaterial;
+      if (phase === 1) {
+        mat.opacity = 0;
+      } else {
+        mat.opacity = THREE.MathUtils.lerp(mat.opacity, 0.8, 0.05);
+      }
+    }
+
     // Rotate Earth if visible
     if (earthRef.current) {
       earthRef.current.rotation.y = time * 0.5;
