@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+}
+
+:root {
+  --background: #0b0b0b;
+  --foreground: #ffffff;
+  --gold: #d4af37;
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  /* Prevent overscroll bounce on iOS */
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* Mobile safe area support */
+  padding-top: env(safe-area-inset-top);
+  /* Bottom padding for mobile tab bar */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ─── iOS-like Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.4);
+}
+
+/* ─── Mobile tap highlight ────────────────────────────────────────────────── */
+* {
+  -webkit-tap-highlight-color: rgba(212, 175, 55, 0.1);
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: #fff;
+}
+
+/* ─── Utility Classes ─────────────────────────────────────────────────────── */
+@utility glow {
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.5), 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+@utility gold-glow {
+  text-shadow: 0 0 12px rgba(212,175,55,0.7);
+}
+
+@utility glass-card {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(40px) saturate(1.8);
+  -webkit-backdrop-filter: blur(40px) saturate(1.8);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 20px;
+}
+
+@utility glass-card-hover {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(40px) saturate(1.8);
+  -webkit-backdrop-filter: blur(40px) saturate(1.8);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 20px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@keyframes pulseGold {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.6);
+  }
+}
+
+@utility pulse-gold {
+  animation: pulseGold 3s infinite ease-in-out;
+}
+
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@utility auto-float {
+  animation: floatY 6s infinite ease-in-out;
+}
+
+@keyframes slowZoom {
+  0%, 100% { transform: translateZ(0) scale(1); }
+  50% { transform: translateZ(0) scale(1.15); }
+}
+
+@utility animate-slow-zoom {
+  animation: slowZoom 50s infinite linear;
+  will-change: transform;
+}
+
+@keyframes goldSweep {
+  0% { transform: translate3d(-100%, 0, 0) skewX(-20deg); }
+  33.33% { transform: translate3d(200%, 0, 0) skewX(-20deg); }
+  100% { transform: translate3d(200%, 0, 0) skewX(-20deg); }
+}
+
+@utility animate-gold-sweep {
+  animation: goldSweep 7.5s infinite ease-in-out;
+  will-change: transform;
+}
+
+/* iOS-style spring bounce for cards */
+@keyframes springIn {
+  0% { transform: scale(0.95) translateY(10px); opacity: 0; }
+  60% { transform: scale(1.02) translateY(-2px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@utility animate-spring-in {
+  animation: springIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Gentle breathing glow for nodes */
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); }
+  50% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.35); }
+}
+
+@utility animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* ─── Mobile-specific helpers ─────────────────────────────────────────────── */
+/* Bottom padding for pages so content doesn't hide behind tab bar */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: 80px !important;
+  }
+}
+
+/* Make touch targets at least 44px on mobile (Apple HIG) */
+@media (max-width: 767px) {
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
