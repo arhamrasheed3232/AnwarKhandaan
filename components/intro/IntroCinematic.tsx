@@ -2,146 +2,137 @@
 
 import { useEffect, useState, useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Stars, MeshTransmissionMaterial, Float, Environment, Text } from "@react-three/drei";
+import { Stars, Float, Environment } from "@react-three/drei";
 import { EffectComposer, Bloom, ChromaticAberration } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import { motion, AnimatePresence } from "framer-motion";
 import * as THREE from "three";
 
-// ─── 3D Ultra-Premium Glass Mandala ─────────────────────────────────────────────
-function GlassIslamicStar({ progress }: { progress: number }) {
-  const groupRef = useRef<THREE.Group>(null);
-  const coreRef = useRef<THREE.Mesh>(null);
+// ─── Constants ─────────────────────────────────────────────
+const PARTICLE_COUNT = 800;
+const DURATION = 22000; // 22 seconds
+
+// ─── Cinematic Particle Morphing System ─────────────────────────────────────────────
+function EvolutionParticles({ phase, progress }: { phase: number, progress: number }) {
+  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const earthRef = useRef<THREE.Mesh>(null);
+
+  // Pre-calculate target positions for each phase
+  const targetPositions = useMemo(() => {
+    const sphere = [];
+    const dna = [];
+    const constellation = [];
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      // 1. Sphere Orbit (Earth ring)
+      const u = Math.random();
+      const v = Math.random();
+      const theta = 2 * Math.PI * u;
+      const phi = Math.acos(2 * v - 1);
+      const r = 3 + Math.random() * 1.5; // orbit radius
+      sphere.push(new THREE.Vector3(
+        r * Math.sin(phi) * Math.cos(theta),
+        r * Math.sin(phi) * Math.sin(theta),
+        r * Math.cos(phi)
+      ));
+
+      // 2. DNA Helix (Human Evolution)
+      const strand = i % 2 === 0 ? 0 : Math.PI;
+      const t = (i / PARTICLE_COUNT) * Math.PI * 10 - 15; 
+      dna.push(new THREE.Vector3(
+        Math.sin(t + strand) * 2,
+        t * 1.5,
+        Math.cos(t + strand) * 2
+      ));
+
+      // 3. Constellation (Khandaan)
+      const cx = (Math.random() - 0.5) * 30;
+      const cy = (Math.random() - 0.5) * 30;
+      const cz = (Math.random() - 0.5) * 10 - 5;
+      constellation.push(new THREE.Vector3(cx, cy, cz));
+    }
+    return { sphere, dna, constellation };
+  }, []);
+
+  // Store current positions for smooth lerping
+  const currentPositions = useMemo(() => {
+    return Array.from({ length: PARTICLE_COUNT }, () => new THREE.Vector3(0, 0, 0));
+  }, []);
+
+  const dummy = useMemo(() => new THREE.Object3D(), []);
 
   useFrame(({ clock }) => {
-    if (!groupRef.current) return;
-    const t = clock.getElapsedTime();
-    
-    // Liquid, smooth continuous rotation
-    groupRef.current.rotation.z = Math.sin(t * 0.2) * 0.5 + t * 0.15;
-    groupRef.current.rotation.x = Math.sin(t * 0.3) * 0.2;
-    groupRef.current.rotation.y = Math.cos(t * 0.2) * 0.2;
+    if (!meshRef.current) return;
+    const time = clock.getElapsedTime();
 
-    // Pulsing glowing core
-    if (coreRef.current) {
-      const scale = 1 + Math.sin(t * 2) * 0.1;
-      coreRef.current.scale.set(scale, scale, scale);
+    // Determine target based on phase
+    let target = targetPositions.sphere;
+    if (phase >= 3) target = targetPositions.dna;
+    if (phase >= 4) target = targetPositions.constellation;
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const cur = currentPositions[i];
+      const tar = target[i];
+
+      // Lerp current position to target position
+      cur.lerp(tar, 0.03); // Smooth transition speed
+
+      // Add dynamic ambient motion based on phase
+      if (phase === 2) {
+        // Revolving power around earth
+        const angle = time * 2 + i * 0.01;
+        cur.x = Math.cos(angle) * tar.x - Math.sin(angle) * tar.z;
+        cur.z = Math.sin(angle) * tar.x + Math.cos(angle) * tar.z;
+      } else if (phase === 3) {
+        // DNA rotating
+        cur.x += Math.sin(time + cur.y) * 0.02;
+        cur.z += Math.cos(time + cur.y) * 0.02;
+      } else if (phase === 4) {
+        // Constellation floating
+        cur.y += Math.sin(time + i) * 0.01;
+        
+        // Massive explosion towards camera at the very end
+        if (progress > 0.9) {
+          const explosion = (progress - 0.9) * 10;
+          cur.z += explosion * (i % 2 === 0 ? 1 : -1) * 5;
+        }
+      }
+
+      dummy.position.copy(cur);
+      
+      // Variable scale
+      const scale = phase === 2 ? 0.05 : phase === 3 ? 0.08 : 0.15;
+      dummy.scale.setScalar(scale + Math.sin(time * 3 + i) * 0.02);
+      
+      dummy.updateMatrix();
+      meshRef.current.setMatrixAt(i, dummy.matrix);
     }
-    
-    // Dramatic zoom explosion at the end
-    if (progress > 0.85) {
-      const zoomFactor = (progress - 0.85) * 60; 
-      groupRef.current.scale.setScalar(1 + Math.pow(zoomFactor, 3));
+    meshRef.current.instanceMatrix.needsUpdate = true;
+
+    // Rotate Earth if visible
+    if (earthRef.current) {
+      earthRef.current.rotation.y = time * 0.5;
     }
   });
 
-  const opacity = progress < 0.2 ? progress * 5 : progress > 0.85 ? Math.max(0, 1 - (progress - 0.85) * 10) : 1;
-
   return (
-    <group ref={groupRef} scale={progress < 0.3 ? Math.pow(progress * 3.33, 2) : 1}>
-      
-      {/* The Core Light */}
-      <mesh ref={coreRef}>
-        <icosahedronGeometry args={[0.5, 2]} />
-        <meshBasicMaterial color="#ffdc73" transparent opacity={opacity} />
+    <group>
+      {/* Central stylized Earth (Only visible in phase 2) */}
+      <mesh ref={earthRef} visible={phase === 2} scale={2}>
+        <icosahedronGeometry args={[1, 2]} />
+        <meshBasicMaterial color="#d4af37" wireframe transparent opacity={0.2} />
       </mesh>
 
-      {/* Glass Layer 1 */}
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-        <mesh rotation={[0, 0, 0]}>
-          <torusGeometry args={[2, 0.4, 32, 4]} />
-          <MeshTransmissionMaterial 
-            backside
-            thickness={1.5}
-            roughness={0.05}
-            transmission={1}
-            ior={1.5}
-            chromaticAberration={0.06}
-            anisotropy={0.3}
-            color="#ffffff"
-            transparent
-            opacity={opacity}
-          />
-        </mesh>
-      </Float>
-
-      {/* Glass Layer 2 (Rotated to form 8-point star) */}
-      <Float speed={2.5} rotationIntensity={0.6} floatIntensity={0.5}>
-        <mesh rotation={[0, 0, Math.PI / 4]}>
-          <torusGeometry args={[2, 0.4, 32, 4]} />
-          <MeshTransmissionMaterial 
-            backside
-            thickness={2}
-            roughness={0.02}
-            transmission={1}
-            ior={1.2}
-            chromaticAberration={0.1}
-            color="#f7e1a3"
-            transparent
-            opacity={opacity}
-          />
-        </mesh>
-      </Float>
-
-      {/* Outer Golden Ring */}
-      <mesh>
-        <torusGeometry args={[3.5, 0.05, 16, 64]} />
-        <meshStandardMaterial color="#d4af37" emissive="#d4af37" emissiveIntensity={2} transparent opacity={opacity * 0.6} />
-      </mesh>
+      {/* Instanced Particles */}
+      <instancedMesh ref={meshRef} args={[undefined, undefined, PARTICLE_COUNT]}>
+        <sphereGeometry args={[1, 8, 8]} />
+        <meshBasicMaterial color="#ffdc73" transparent opacity={0.8} />
+      </instancedMesh>
     </group>
   );
 }
 
-// ─── Ambient Particles ─────────────────────────────────────────────
-function AmbientDust({ count = 200 }) {
-  const mesh = useRef<THREE.InstancedMesh>(null);
-  const dummy = useMemo(() => new THREE.Object3D(), []);
-  
-  const particles = useMemo(() => {
-    const temp = [];
-    for (let i = 0; i < count; i++) {
-      temp.push({
-        t: Math.random() * 100,
-        factor: 0.2 + Math.random() * 0.8,
-        speed: 0.01 + Math.random() * 0.015,
-        xFactor: -20 + Math.random() * 40,
-        yFactor: -20 + Math.random() * 40,
-        zFactor: -20 + Math.random() * 40,
-      });
-    }
-    return temp;
-  }, [count]);
-
-  useFrame(() => {
-    if (!mesh.current) return;
-    particles.forEach((particle, i) => {
-      let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
-      t = particle.t += speed / 2;
-      const a = Math.cos(t) + Math.sin(t * 1) / 10;
-      const b = Math.sin(t) + Math.cos(t * 2) / 10;
-      const s = Math.cos(t);
-      
-      dummy.position.set(
-        (particle.xFactor / 2) + a * 5,
-        (particle.yFactor / 2) + b * 5,
-        (particle.zFactor / 2) + b * 2
-      );
-      dummy.scale.setScalar(s * factor * 0.1);
-      dummy.updateMatrix();
-      mesh.current!.setMatrixAt(i, dummy.matrix);
-    });
-    mesh.current.instanceMatrix.needsUpdate = true;
-  });
-
-  return (
-    <instancedMesh ref={mesh} args={[undefined, undefined, count]}>
-      <sphereGeometry args={[0.2, 8, 8]} />
-      <meshBasicMaterial color="#d4af37" transparent opacity={0.4} />
-    </instancedMesh>
-  );
-}
-
-// ─── Main Intro Component ─────────────────────────────────────────────
+// ─── Main Cinematic Component ─────────────────────────────────────────────
 export default function IntroCinematic({ onComplete }: { onComplete: () => void }) {
   const [phase, setPhase] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -149,16 +140,16 @@ export default function IntroCinematic({ onComplete }: { onComplete: () => void 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     const startTime = Date.now();
-    const duration = 12000;
 
     const interval = setInterval(() => {
       const elapsed = Date.now() - startTime;
-      const currentProgress = Math.min(elapsed / duration, 1);
+      const currentProgress = Math.min(elapsed / DURATION, 1);
       setProgress(currentProgress);
 
-      if (currentProgress < 0.15) setPhase(1);
-      else if (currentProgress < 0.45) setPhase(2);
-      else if (currentProgress < 0.8) setPhase(3);
+      if (currentProgress < 0.20) setPhase(1); // Ayah
+      else if (currentProgress < 0.45) setPhase(2); // Earth & Power
+      else if (currentProgress < 0.70) setPhase(3); // Evolution/DNA
+      else if (currentProgress < 0.95) setPhase(4); // Khandaan Constellation
       else if (currentProgress >= 1) {
         clearInterval(interval);
         document.body.style.overflow = 'auto';
@@ -180,74 +171,85 @@ export default function IntroCinematic({ onComplete }: { onComplete: () => void 
       className="fixed inset-0 z-[9999] bg-[#020202] flex items-center justify-center"
     >
       <div className="absolute inset-0">
-        <Canvas camera={{ position: [0, 0, 10], fov: 45 }} gl={{ antialias: false, powerPreference: "high-performance" }}>
+        <Canvas camera={{ position: [0, 0, 15], fov: 45 }} gl={{ antialias: false, powerPreference: "high-performance" }}>
           <color attach="background" args={["#010101"]} />
           <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={2} color="#ffffff" />
-          <directionalLight position={[-10, -10, -5]} intensity={1} color="#d4af37" />
-          
-          <Environment preset="city" />
-          
           <Stars radius={100} depth={50} count={3000} factor={3} saturation={0.5} fade speed={1} />
-          <AmbientDust count={150} />
-          <GlassIslamicStar progress={progress} />
+          
+          <EvolutionParticles phase={phase} progress={progress} />
 
           <EffectComposer disableNormalPass>
-            <Bloom 
-              luminanceThreshold={0.5} 
-              mipmapBlur 
-              intensity={1.5} 
-            />
-            <ChromaticAberration
-              blendFunction={BlendFunction.NORMAL}
-              offset={new THREE.Vector2(0.002, 0.002)}
-            />
+            <Bloom luminanceThreshold={0.2} mipmapBlur intensity={2.0} />
+            <ChromaticAberration blendFunction={BlendFunction.NORMAL} offset={new THREE.Vector2(0.003, 0.003)} />
           </EffectComposer>
         </Canvas>
       </div>
 
-      {/* Cinematic Text Overlay - Typographic Excellence */}
+      {/* Cinematic Text Overlay */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pointer-events-none flex flex-col items-center justify-center h-full">
         <AnimatePresence mode="wait">
+          
+          {/* Phase 1: The Ayah */}
           {phase === 1 && (
             <motion.div
               key="phase1"
               initial={{ opacity: 0, scale: 0.95, filter: "blur(20px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
-              transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }} // Exponetial easing
+              transition={{ duration: 2, ease: "easeInOut" }}
+              className="flex flex-col gap-6"
             >
-              <h2 className="text-3xl md:text-5xl lg:text-7xl font-serif text-white uppercase tracking-[0.3em] font-light">
-                Light <span className="text-gold italic glow">Upon</span> Light
-              </h2>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl text-gold font-serif leading-relaxed drop-shadow-2xl text-center" style={{ direction: 'rtl' }}>
+                يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ<br/>وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا
+              </h1>
+              <p className="text-white/70 text-sm md:text-base tracking-[0.2em] uppercase max-w-2xl mx-auto mt-4 font-light">
+                "O mankind, We have created you from male and female and made you peoples and tribes that you may know one another."
+              </p>
             </motion.div>
           )}
 
+          {/* Phase 2: Earth & Power */}
           {phase === 2 && (
             <motion.div
               key="phase2"
               initial={{ opacity: 0, y: 20, filter: "blur(15px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: -20, filter: "blur(15px)" }}
-              transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col gap-4"
+              transition={{ duration: 2 }}
             >
               <h2 className="text-xl md:text-3xl lg:text-5xl font-serif text-white tracking-[0.2em] uppercase font-light leading-relaxed drop-shadow-2xl">
-                Made into nations and tribes
+                From the Earth we were formed...
               </h2>
             </motion.div>
           )}
 
+          {/* Phase 3: Evolution / DNA */}
           {phase === 3 && (
             <motion.div
               key="phase3"
               initial={{ opacity: 0, y: 20, filter: "blur(15px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-              transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 2 }}
             >
               <h2 className="text-2xl md:text-4xl lg:text-6xl font-serif text-gold glow tracking-[0.2em] uppercase font-light leading-relaxed">
-                So that we may <span className="text-white italic">know</span> one another.
+                ...through generations we <span className="text-white italic">evolved</span>...
+              </h2>
+            </motion.div>
+          )}
+
+          {/* Phase 4: Khandaan */}
+          {phase === 4 && progress < 0.95 && (
+            <motion.div
+              key="phase4"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, filter: "blur(20px)" }}
+              transition={{ duration: 1.5 }}
+            >
+              <h2 className="text-4xl md:text-6xl lg:text-8xl font-serif text-white tracking-[0.2em] uppercase drop-shadow-[0_0_30px_rgba(212,175,55,1)]">
+                To become the <br/>
+                <span className="text-gold italic">Anwar Khandaan</span>
               </h2>
             </motion.div>
           )}
@@ -257,7 +259,7 @@ export default function IntroCinematic({ onComplete }: { onComplete: () => void 
       <motion.div 
         className="absolute inset-0 bg-[#020202] pointer-events-none"
         initial={{ opacity: 0 }}
-        animate={{ opacity: progress > 0.9 ? 1 : 0 }}
+        animate={{ opacity: progress > 0.95 ? 1 : 0 }}
         transition={{ duration: 0.8, ease: "circIn" }}
       />
     </motion.div>
