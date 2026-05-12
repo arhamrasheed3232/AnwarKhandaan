@@ -10,7 +10,7 @@ import * as THREE from "three";
 
 // ─── Constants ─────────────────────────────────────────────
 const PARTICLE_COUNT = 800;
-const DURATION = 22000; // 22 seconds
+const DURATION = 28000; // 28 seconds
 
 // ─── Cinematic Particle Morphing System ─────────────────────────────────────────────
 function EvolutionParticles({ phase, progress }: { phase: number, progress: number }) {
@@ -146,10 +146,10 @@ export default function IntroCinematic({ onComplete }: { onComplete: () => void 
       const currentProgress = Math.min(elapsed / DURATION, 1);
       setProgress(currentProgress);
 
-      if (currentProgress < 0.20) setPhase(1); // Ayah
-      else if (currentProgress < 0.45) setPhase(2); // Earth & Power
-      else if (currentProgress < 0.70) setPhase(3); // Evolution/DNA
-      else if (currentProgress < 0.95) setPhase(4); // Khandaan Constellation
+      if (currentProgress < 0.30) setPhase(1); // Ayah (0-8.4s)
+      else if (currentProgress < 0.55) setPhase(2); // Earth & Power (8.4-15.4s)
+      else if (currentProgress < 0.75) setPhase(3); // Evolution/DNA (15.4-21s)
+      else if (currentProgress < 0.95) setPhase(4); // Khandaan Constellation (21-26.6s)
       else if (currentProgress >= 1) {
         clearInterval(interval);
         document.body.style.overflow = 'auto';
