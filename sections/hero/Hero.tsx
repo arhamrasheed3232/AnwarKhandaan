@@ -118,8 +118,8 @@ export default function Hero() {
            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
            className="relative inline-block overflow-visible pb-4"
         >
-           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white tracking-widest uppercase relative z-10 px-2 md:px-4 leading-tight font-light mix-blend-screen">
-             The Legacy<br className="sm:hidden" /> <span className="text-gold italic glow font-medium">Continues</span>
+           <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-serif text-gold glow relative z-10 px-2 md:px-4 leading-tight mix-blend-screen pb-2 drop-shadow-2xl" dir="rtl">
+             انور خاندان
            </h1>
            
            <div className="absolute top-0 -bottom-4 h-full w-[30%] z-20 block bg-gradient-to-r from-transparent via-gold/80 to-transparent pointer-events-none mix-blend-color-dodge opacity-70 animate-gold-sweep" />
