@@ -192,7 +192,8 @@
       "parent": "mujeeb",
       "spouse": "amir",
       "children": [
-        "ahmed"
+        "ahmed",
+        "tooba"
       ],
       "dob": "15/01/1977",
       "gender": "Female",
@@ -280,12 +281,18 @@
     {
       "id": "moosa",
       "name": "Moosa Mujeeb",
-      "parent": "monis"
+      "parent": "monis",
+      "dob": "16/09/2014",
+      "gender": "Male",
+      "bio": "I love my dad and I look like him"
     },
     {
       "id": "mustafa",
       "name": "Mustafa Mujeeb",
-      "parent": "monis"
+      "parent": "monis",
+      "dob": "10/09/2018",
+      "gender": "Male",
+      "bio": "Smart, sharp, cute, and best decision making"
     },
     {
       "id": "shamsuddin",
@@ -325,6 +332,14 @@
       "id": "habibunisa",
       "name": "Habibunisa",
       "parent": "anwar"
+    },
+    {
+      "id": "tooba",
+      "name": "Tooba Amir",
+      "parent": "razia",
+      "dob": "25/06/2005",
+      "gender": "Female",
+      "bio": "I am a positive, warm person who believes in letting go all negativity. I am focusing on creating a peaceful and successful future to make my parents proud."
     }
   ]
 }
