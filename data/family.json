@@ -112,7 +112,7 @@
     },
     {
       "id": "saira",
-      "name": "Saira",
+      "name": "Saira Khatoon",
       "gender": "Female",
       "dob": "Late 90s",
       "bio": "I am the one who went to jannah in young age",
@@ -123,7 +123,7 @@
       "name": "Qamar Jahan",
       "gender": "Female",
       "dob": "01/01/1957",
-      "bio": "I have a habit of forgiving people",
+      "bio": "I have a habit of forgiving people and I love to help others",
       "spouse": "mujeeb",
       "children": [
         "amina",
@@ -136,7 +136,7 @@
     },
     {
       "id": "hashmi",
-      "name": "Hashmi",
+      "name": "Hashmi Khatoon",
       "gender": "Female",
       "dob": "30/06/1962",
       "bio": "I am best at making non veg gravies",
