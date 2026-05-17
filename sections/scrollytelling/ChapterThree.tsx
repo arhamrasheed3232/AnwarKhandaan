@@ -56,8 +56,8 @@ export default function ChapterThree() {
       <div className="max-w-7xl mx-auto z-10 relative">
         <div className="text-center mb-32">
           <motion.h2 
-            initial={{ opacity: 0, tracking: "0em" }}
-            whileInView={{ opacity: 1, tracking: "0.4em" }}
+            initial={{ opacity: 0, letterSpacing: "0em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.4em" }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-xs md:text-sm text-gold uppercase mb-6 font-light"

@@ -44,8 +44,8 @@ export default function ChapterTwo() {
       <div className="max-w-6xl mx-auto z-10 relative">
         <div className="text-center mb-24">
           <motion.h2
-            initial={{ opacity: 0, tracking: "0em" }}
-            whileInView={{ opacity: 1, tracking: "0.4em" }}
+            initial={{ opacity: 0, letterSpacing: "0em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.4em" }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-sm md:text-2xl text-gold uppercase mb-6 font-semibold gold-glow"
