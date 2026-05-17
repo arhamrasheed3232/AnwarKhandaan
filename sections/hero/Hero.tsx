@@ -89,29 +89,6 @@ export default function Hero() {
         className="z-10 flex flex-col items-center justify-center px-6 md:p-8 text-center relative"
       >
         
-        {/* Glassmorphic Calligraphy Icon */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotateX: 90 }}
-          animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6 md:mb-10 perspective-1000"
-        >
-          <div className="
-            relative w-20 h-20 md:w-28 md:h-28 
-            rounded-3xl md:rounded-[32px] 
-            bg-white/5 backdrop-blur-2xl 
-            border border-gold/40 
-            flex items-center justify-center 
-            shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_0_20px_rgba(212,175,55,0.2)] 
-            animate-breathe
-            hover:border-gold/80 transition-colors duration-500
-            transform-gpu
-          ">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-transparent rounded-[inherit] pointer-events-none" />
-            <span className="text-gold text-4xl md:text-5xl font-serif drop-shadow-2xl">ا</span>
-          </div>
-        </motion.div>
-
         <motion.div
            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
