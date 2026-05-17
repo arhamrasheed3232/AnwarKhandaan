@@ -3,7 +3,7 @@
     "id": "anwar",
     "name": "Anwar Ali",
     "gender": "Male",
-    "dob": "Early 90s",
+    "dob": "Early 1900s",
     "bio": "I am Anwar Ali, and all of you are part of my bloodline, whether from my sons� side or my daughters� side.",
     "spouse": "iltifatunisa",
     "children": [
@@ -21,8 +21,8 @@
       "id": "anwar",
       "name": "Anwar Ali",
       "gender": "Male",
-      "dob": "Early 90s",
-      "bio": "I am Anwar Ali, and all of you are part of my bloodline, whether from my sons� side or my daughters� side.",
+      "dob": "Early 1900s",
+      "bio": "I am Anwar Ali, and all of you are part of my bloodline, whether from my sons side or my daughters side.",
       "spouse": "iltifatunisa",
       "children": [
         "rasheed",
@@ -38,7 +38,7 @@
       "id": "iltifatunisa",
       "name": "Iltifatunisa",
       "gender": "Female",
-      "dob": "Early 90s",
+      "dob": "Early 1900s",
       "bio": "I am Iltifatunisa. Whether through you or your children, my bloodline, love, and memories will continue through generations.",
       "spouse": "anwar"
     },
@@ -46,7 +46,7 @@
       "id": "rasheed",
       "name": "Mohammad Rasheed",
       "gender": "Male",
-      "dob": "Mid 90s",
+      "dob": "Mid 1900s",
       "bio": "I am Mohammad Rasheed. I am silent and hardworking. I deeply love my family and my people, and above everything, my brothers mean the most to me.",
       "spouse": "sayyada",
       "children": [
@@ -61,7 +61,7 @@
       "id": "mujeeb",
       "name": "Mohammad Mujeeb",
       "gender": "Male",
-      "dob": "Mid 90s",
+      "dob": "Mid 1900s",
       "bio": "I am Mujeeb. I believe in Allah and I put all my trust in Him. He is my greatest support, my peace, and my strength in every situation.",
       "spouse": "qamar",
       "children": [
@@ -78,7 +78,7 @@
       "id": "wasiqunnisa",
       "name": "Wasiqunnisa",
       "gender": "Female",
-      "dob": "Mid 90s",
+      "dob": "Mid 1900s",
       "bio": "I have 3 brothers",
       "parent": "anwar"
     },
@@ -86,7 +86,7 @@
       "id": "nazira",
       "name": "Nazira Bano",
       "gender": "Female",
-      "dob": "Mid 90s",
+      "dob": "Mid 1900s",
       "bio": "I am a hardworking, strong, caring, and kind-hearted woman who always stands with love, patience, and strength for the people I care about.",
       "spouse": "ayaz"
     },
@@ -94,7 +94,7 @@
       "id": "ayaz",
       "name": "Mohammad Ayaz",
       "gender": "Male",
-      "dob": "Mid 90s",
+      "dob": "Mid 1900s",
       "bio": "I am Mohammad Ayaz. I have beautiful calligraphy, and I love my brothers more than myself. Their happiness gives me peace, and seeing them smile brings comfort to my heart.",
       "spouse": "nazira",
       "children": [
@@ -106,7 +106,7 @@
       "id": "sayyada",
       "name": "Sayyada Khatoon",
       "gender": "Female",
-      "dob": "Mid 90s",
+      "dob": "Mid 1900s",
       "bio": "I am a hardworking woman, and I am sabir by nature. I spend most of my time working and praying to my Rabb, finding peace and strength through faith and patience.",
       "spouse": "rasheed"
     },
@@ -114,7 +114,7 @@
       "id": "saira",
       "name": "Saira Khatoon",
       "gender": "Female",
-      "dob": "Late 90s",
+      "dob": "Late 1900s",
       "bio": "I am the one who went to jannah in young age",
       "parent": "rasheed"
     },
