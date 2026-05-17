@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -41,16 +40,6 @@ export default function Hero() {
         }
       });
     }
-
-    // Floating glass buttons
-    gsap.to(".glass-btn", {
-      y: -10,
-      duration: 2,
-      ease: "sine.inOut",
-      yoyo: true,
-      repeat: -1,
-      stagger: 0.2
-    });
   }, { scope: containerRef });
 
   return (
@@ -110,61 +99,6 @@ export default function Hero() {
         >
           Discover the profound history, the people, and the enduring moments of our Khandaan.
         </motion.p>
-
-        {/* Micro-interaction Glassmorphic Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 1.5 }}
-          className="mt-10 md:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-8 sm:px-0"
-        >
-          <Link
-            href="/family-tree"
-            className="
-              glass-btn relative overflow-hidden
-              flex items-center justify-center gap-2
-              py-4 px-10 
-              bg-gold/10 backdrop-blur-xl
-              border border-gold/50
-              text-gold 
-              font-serif uppercase tracking-[0.2em] text-[11px] md:text-xs
-              rounded-full
-              shadow-[0_0_30px_rgba(212,175,55,0.2)]
-              hover:shadow-[0_0_50px_rgba(212,175,55,0.6)]
-              hover:bg-gold/20
-              hover:scale-105
-              active:scale-95
-              transition-all duration-500
-              group
-            "
-          >
-            <span className="relative z-10">Explore Tree</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-gold-sweep" />
-          </Link>
-
-          <Link
-            href="/timeline"
-            className="
-              glass-btn relative overflow-hidden
-              flex items-center justify-center gap-2
-              py-4 px-10 
-              bg-white/5 backdrop-blur-xl
-              border border-white/20
-              text-white
-              font-serif uppercase tracking-[0.2em] text-[11px] md:text-xs
-              rounded-full
-              hover:bg-white/10
-              hover:border-white/40
-              hover:scale-105
-              active:scale-95
-              transition-all duration-500
-              group
-            "
-          >
-            <span className="relative z-10">View Timeline</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-gold-sweep" />
-          </Link>
-        </motion.div>
       </motion.div>
 
       {/* Scroll indicator */}
