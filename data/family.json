@@ -48,14 +48,14 @@
       "gender": "Male",
       "dob": "Mid 90s",
       "bio": "I am Mohammad Rasheed. I am silent and hardworking. I deeply love my family and my people, and above everything, my brothers mean the most to me.",
-      "parent": "anwar",
       "spouse": "sayyada",
       "children": [
         "arshad",
         "nazmi",
         "hashmi",
         "saira"
-      ]
+      ],
+      "parent": "anwar"
     },
     {
       "id": "mujeeb",
@@ -63,7 +63,6 @@
       "gender": "Male",
       "dob": "Mid 90s",
       "bio": "I am Mujeeb. I believe in Allah and I put all my trust in Him. He is my greatest support, my peace, and my strength in every situation.",
-      "parent": "anwar",
       "spouse": "qamar",
       "children": [
         "mohsin",
@@ -72,7 +71,8 @@
         "mariya",
         "razia",
         "fozia"
-      ]
+      ],
+      "parent": "anwar"
     },
     {
       "id": "wasiqunnisa",
@@ -96,11 +96,11 @@
       "gender": "Male",
       "dob": "Mid 90s",
       "bio": "I am Mohammad Ayaz. I have beautiful calligraphy, and I love my brothers more than myself. Their happiness gives me peace, and seeing them smile brings comfort to my heart.",
-      "parent": "anwar",
       "spouse": "nazira",
       "children": [
         "anas"
-      ]
+      ],
+      "parent": "anwar"
     },
     {
       "id": "sayyada",
@@ -139,14 +139,16 @@
       "name": "Hashmi",
       "gender": "Female",
       "dob": "30/06/1962",
-      "bio": "I am best at making non veg gravies"
+      "bio": "I am best at making non veg gravies",
+      "parent": "rasheed"
     },
     {
       "id": "nazmi",
       "name": "Nazmi Khatoon",
       "gender": "Female",
       "dob": "10/09/1966",
-      "bio": "Mae dusro ki khidmat kr k khush hoti hun"
+      "bio": "Mae dusro ki khidmat kr k khush hoti hun",
+      "parent": "rasheed"
     },
     {
       "id": "arshad",
@@ -158,7 +160,8 @@
       "children": [
         "arham",
         "akram"
-      ]
+      ],
+      "parent": "rasheed"
     },
     {
       "id": "amir",
@@ -178,32 +181,34 @@
       "gender": "Male",
       "dob": "10/04/1973",
       "bio": "Thhoda Gussay wala and emotional",
-      "parent": "mujeeb",
       "spouse": "taiba",
       "children": [
         "asjad",
         "kaab",
         "hidaya"
-      ]
+      ],
+      "parent": "mujeeb"
     },
     {
       "id": "fozia",
       "name": "Fozia Khatoon",
       "gender": "Female",
       "dob": "10/01/1976",
-      "bio": "I am jannati"
+      "bio": "I am jannati",
+      "parent": "mujeeb"
     },
     {
       "id": "razia",
       "name": "Razia Khatoon",
       "gender": "Female",
       "dob": "15/01/1977",
-      "bio": "I have a strong belief in Allah. I love my dear ones very much",
+      "bio": "Truthful, honest, caring, loving",
       "spouse": "amir",
       "children": [
         "tooba",
         "taha"
-      ]
+      ],
+      "parent": "mujeeb"
     },
     {
       "id": "amina",
@@ -215,7 +220,8 @@
       "children": [
         "arham",
         "akram"
-      ]
+      ],
+      "parent": "mujeeb"
     },
     {
       "id": "taiba",
@@ -240,7 +246,8 @@
       "children": [
         "shams",
         "juveria"
-      ]
+      ],
+      "parent": "mujeeb"
     },
     {
       "id": "monis",
@@ -248,12 +255,12 @@
       "gender": "Male",
       "dob": "04/02/1985",
       "bio": "I am a patient and calm person, especially in challenging situations",
-      "parent": "mujeeb",
       "spouse": "hira",
       "children": [
         "moosa",
         "mustafa"
-      ]
+      ],
+      "parent": "mujeeb"
     },
     {
       "id": "anas",
@@ -261,12 +268,12 @@
       "gender": "Male",
       "dob": "04/012/1985",
       "bio": "I am a kind person, i love my family and my brothers",
-      "parent": "ayaz",
       "spouse": "zulekha",
       "children": [
         "dawood",
         "ibrahim"
-      ]
+      ],
+      "parent": "ayaz"
     },
     {
       "id": "ziauddin",
@@ -325,7 +332,8 @@
       "name": "Tooba Amir",
       "gender": "Female",
       "dob": "25/06/2005",
-      "bio": "I am a positive, warm person who believes in letting go all negativity. I am focusing on creating a peaceful and successful future to make my parents proud."
+      "bio": "I am a positive, warm person who believes in letting go all negativity. I am focusing on creating a peaceful and successful future to make my parents proud.",
+      "parent": "amir"
     },
     {
       "id": "shams",
@@ -364,7 +372,8 @@
       "name": "Akram Rasheed",
       "gender": "Male",
       "dob": "03/07/2011",
-      "bio": "Caring,sharp minded,merciful,truthful"
+      "bio": "Caring,sharp minded,merciful,truthful",
+      "parent": "arshad"
     },
     {
       "id": "hidaya",
@@ -403,7 +412,8 @@
       "name": "Ibrahim Ayaz",
       "gender": "Male",
       "dob": "12/09/2023",
-      "bio": "Cute ,  joyful , energetic , sincere"
+      "bio": "Cute ,  joyful , energetic , sincere",
+      "parent": "anas"
     }
   ]
 }

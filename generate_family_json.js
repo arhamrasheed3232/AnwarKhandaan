@@ -69,16 +69,15 @@ parsedRows.slice(1).forEach(cols => {
   members.push(member);
 });
 
+// First pass: Resolve spouses and children arrays (which establishes biological relations)
 members.forEach(m => {
   if (m._bio && m._bio !== 'null') m.bio = m._bio;
   
-  if (m._rawFather && m._rawFather !== 'null') {
-    const parentMatch = members.find(x => x.name.toLowerCase() === m._rawFather.toLowerCase());
-    if (parentMatch) m.parent = parentMatch.id;
-  }
-  
   if (m._rawSpouse && m._rawSpouse !== 'null') {
-    const spouseMatch = members.find(x => x.name.toLowerCase() === m._rawSpouse.toLowerCase() || x.id === m._rawSpouse.toLowerCase());
+    const spouseMatch = members.find(x => 
+      x.name.toLowerCase().trim() === m._rawSpouse.toLowerCase().trim() || 
+      x.id === m._rawSpouse.toLowerCase().trim()
+    );
     if (spouseMatch) m.spouse = spouseMatch.id;
   }
   
@@ -86,19 +85,57 @@ members.forEach(m => {
     const childNames = m._rawChildren.split(',').map(s => s.trim());
     const childIds = [];
     childNames.forEach(cn => {
-      const match = members.find(x => x.name.toLowerCase() === cn.toLowerCase() || x.id === cn.toLowerCase());
+      const match = members.find(x => 
+        x.name.toLowerCase().trim() === cn.toLowerCase().trim() || 
+        x.id === cn.toLowerCase().trim()
+      );
       if (match) {
         childIds.push(match.id);
       } else {
-        childIds.push(cn.toLowerCase().replace(/ /g, ''));
+        // Fallback to formatted slug if child not present as a separate row yet
+        childIds.push(cn.toLowerCase().trim().replace(/ /g, ''));
       }
     });
     m.children = childIds;
   }
-  
+});
+
+// Second pass: Resolve parents using a multi-layered match (Name fuzzy match + Children array reverse match)
+members.forEach(m => {
+  let parentId = null;
+
+  if (m._rawFather && m._rawFather !== 'null') {
+    const cleanFather = m._rawFather.toLowerCase().trim();
+    const parentMatch = members.find(x => {
+      const cleanName = x.name.toLowerCase().trim();
+      return (
+        cleanName === cleanFather ||
+        cleanName.replace('mohammad', 'mohd') === cleanFather ||
+        cleanName.replace('mohd', 'mohammad') === cleanFather ||
+        cleanName.replace('aamir', 'amir') === cleanFather ||
+        cleanName.replace('amir', 'aamir') === cleanFather
+      );
+    });
+    if (parentMatch) parentId = parentMatch.id;
+  }
+
+  // Double check: if still no parent, check who has this member listed in their children array
+  if (!parentId) {
+    const parentByChildren = members.find(x => x.children && x.children.includes(m.id));
+    if (parentByChildren) {
+      parentId = parentByChildren.id;
+    }
+  }
+
+  if (parentId) {
+    m.parent = parentId;
+  }
+
+  // Cleanup raw properties
   delete m._rawFather;
   delete m._rawSpouse;
   delete m._rawChildren;
+  delete m._body;
   delete m._bio;
 });
 
