@@ -414,6 +414,27 @@
       "dob": "12/09/2023",
       "bio": "Cute ,  joyful , energetic , sincere",
       "parent": "anas"
+    },
+    {
+      "id": "naseer",
+      "name": "Naseer",
+      "gender": "Male",
+      "parent": "anwar",
+      "bio": "Carrying forward the family legacy."
+    },
+    {
+      "id": "saeed",
+      "name": "Saeed",
+      "gender": "Male",
+      "parent": "anwar",
+      "bio": "Carrying forward the family legacy."
+    },
+    {
+      "id": "habibunisa",
+      "name": "Habibunisa",
+      "gender": "Female",
+      "parent": "anwar",
+      "bio": "Carrying forward the family legacy."
     }
   ]
 }

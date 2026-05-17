@@ -139,6 +139,30 @@ members.forEach(m => {
   delete m._bio;
 });
 
+// Third pass: dynamically inject skeleton records for any children listed but not having their own rows
+const memberIds = members.map(m => m.id);
+const skeletonsToInject = [];
+
+members.forEach(m => {
+  if (m.children) {
+    m.children.forEach(childId => {
+      if (!memberIds.includes(childId) && !skeletonsToInject.some(x => x.id === childId)) {
+        // Build a proper title-cased name from the ID
+        const formattedName = childId.charAt(0).toUpperCase() + childId.slice(1);
+        skeletonsToInject.push({
+          id: childId,
+          name: formattedName,
+          gender: childId.toLowerCase().includes('nisa') || childId.toLowerCase().includes('fatima') ? 'Female' : 'Male',
+          parent: m.id,
+          bio: `Carrying forward the family legacy.`
+        });
+      }
+    });
+  }
+});
+
+members.push(...skeletonsToInject);
+
 const anwar = members.find(m => m.id === 'anwar');
 const familyData = {
   root: anwar ? anwar : { id: "anwar", name: "Anwar Ali", children: [] },
