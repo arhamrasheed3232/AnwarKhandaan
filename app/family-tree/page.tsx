@@ -1,6 +1,7 @@
 import InteractiveTree from "@/components/family-tree/InteractiveTreeDynamic";
 import familyData from "@/data/family.json";
 import dagre from "dagre";
+import SpaceBackground from "@/components/background/SpaceBackground";
 
 export default async function FamilyTreePage() {
   const dagreGraph = new dagre.graphlib.Graph();
@@ -95,7 +96,8 @@ export default async function FamilyTreePage() {
   const finalEdges = rawEdges;
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-start px-4 md:p-8 pt-6 md:pt-12 text-center bg-background">
+    <div className="flex min-h-screen flex-col items-center justify-start px-4 md:p-8 pt-6 md:pt-12 text-center bg-black relative">
+      <SpaceBackground />
       <div className="w-full max-w-6xl mb-4 md:mb-8 z-10">
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-serif text-gold glow uppercase tracking-widest mb-2 md:mb-4">
           Family Tree

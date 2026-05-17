@@ -2,6 +2,9 @@
   "root": {
     "id": "anwar",
     "name": "Anwar Ali",
+    "gender": "Male",
+    "dob": "Early 90s",
+    "bio": "I am Anwar Ali, and all of you are part of my bloodline, whether from my sons� side or my daughters� side.",
     "spouse": "iltifatunisa",
     "children": [
       "rasheed",
@@ -15,14 +18,38 @@
   },
   "members": [
     {
+      "id": "anwar",
+      "name": "Anwar Ali",
+      "gender": "Male",
+      "dob": "Early 90s",
+      "bio": "I am Anwar Ali, and all of you are part of my bloodline, whether from my sons� side or my daughters� side.",
+      "spouse": "iltifatunisa",
+      "children": [
+        "rasheed",
+        "mujeeb",
+        "ayaz",
+        "wasiqunnisa",
+        "naseer",
+        "saeed",
+        "habibunisa"
+      ]
+    },
+    {
       "id": "iltifatunisa",
-      "name": "Iltifatunisa"
+      "name": "Iltifatunisa",
+      "gender": "Female",
+      "dob": "Early 90s",
+      "bio": "I am Iltifatunisa. Whether through you or your children, my bloodline, love, and memories will continue through generations.",
+      "spouse": "anwar"
     },
     {
       "id": "rasheed",
-      "name": "Mohd Rasheed",
-      "spouse": "sayyada",
+      "name": "Mohammad Rasheed",
+      "gender": "Male",
+      "dob": "Mid 90s",
+      "bio": "I am Mohammad Rasheed. I am silent and hardworking. I deeply love my family and my people, and above everything, my brothers mean the most to me.",
       "parent": "anwar",
+      "spouse": "sayyada",
       "children": [
         "arshad",
         "nazmi",
@@ -31,14 +58,13 @@
       ]
     },
     {
-      "id": "sayyada",
-      "name": "Sayyada Khatoon"
-    },
-    {
       "id": "mujeeb",
       "name": "Mohammad Mujeeb",
-      "spouse": "qamar",
+      "gender": "Male",
+      "dob": "Mid 90s",
+      "bio": "I am Mujeeb. I believe in Allah and I put all my trust in Him. He is my greatest support, my peace, and my strength in every situation.",
       "parent": "anwar",
+      "spouse": "qamar",
       "children": [
         "mohsin",
         "amina",
@@ -49,174 +75,192 @@
       ]
     },
     {
-      "id": "qamar",
-      "name": "Qamar Jahan",
-      "dob": "01/01/1957",
+      "id": "wasiqunnisa",
+      "name": "Wasiqunnisa",
       "gender": "Female",
-      "bio": "I have a habit of forgiving people"
+      "dob": "Mid 90s",
+      "bio": "I have 3 brothers",
+      "parent": "anwar"
+    },
+    {
+      "id": "nazira",
+      "name": "Nazira Bano",
+      "gender": "Female",
+      "dob": "Mid 90s",
+      "bio": "I am a hardworking, strong, caring, and kind-hearted woman who always stands with love, patience, and strength for the people I care about.",
+      "spouse": "ayaz"
     },
     {
       "id": "ayaz",
-      "name": "Ayaz",
-      "spouse": "nazira",
+      "name": "Mohammad Ayaz",
+      "gender": "Male",
+      "dob": "Mid 90s",
+      "bio": "I am Mohammad Ayaz. I have beautiful calligraphy, and I love my brothers more than myself. Their happiness gives me peace, and seeing them smile brings comfort to my heart.",
       "parent": "anwar",
+      "spouse": "nazira",
       "children": [
         "anas"
       ]
     },
     {
-      "id": "nazira",
-      "name": "Nazira Bano"
-    },
-    {
-      "id": "wasiqunnisa",
-      "name": "Wasiqunnisa",
-      "parent": "anwar"
-    },
-    {
-      "id": "arshad",
-      "name": "Mohd Arshad",
-      "parent": "rasheed",
-      "spouse": "amina",
-      "children": [
-        "arham",
-        "akram"
-      ],
-      "dob": "16/07/1970",
-      "gender": "Male",
-      "bio": "Mae dil k bhttt achha hu or hr insaan ki burae ko ansuna andekha kr deta hu"
-    },
-    {
-      "id": "nazmi",
-      "name": "Nazmi Khatoon",
-      "parent": "rasheed",
-      "dob": "10/09/1966",
+      "id": "sayyada",
+      "name": "Sayyada Khatoon",
       "gender": "Female",
-      "bio": "Mae dusro ki khidmat kr k khush hoti hun"
-    },
-    {
-      "id": "hashmi",
-      "name": "Hashmi",
-      "parent": "rasheed",
-      "spouse": "shamshad",
-      "dob": "30/06/1962",
-      "gender": "Female",
-      "bio": "I am best at making non veg gravies"
+      "dob": "Mid 90s",
+      "bio": "I am a hardworking woman, and I am sabir by nature. I spend most of my time working and praying to my Rabb, finding peace and strength through faith and patience.",
+      "spouse": "rasheed"
     },
     {
       "id": "saira",
       "name": "Saira",
+      "gender": "Female",
+      "dob": "Late 90s",
+      "bio": "I am the one who went to jannah in young age",
       "parent": "rasheed"
     },
     {
-      "id": "shamshad",
-      "name": "Shamshad Ali Khan"
+      "id": "qamar",
+      "name": "Qamar Jahan",
+      "gender": "Female",
+      "dob": "01/01/1957",
+      "bio": "I have a habit of forgiving people",
+      "spouse": "mujeeb",
+      "children": [
+        "amina",
+        "mohsin",
+        "monis",
+        "fozia",
+        "razia",
+        "mariya"
+      ]
+    },
+    {
+      "id": "hashmi",
+      "name": "Hashmi",
+      "gender": "Female",
+      "dob": "30/06/1962",
+      "bio": "I am best at making non veg gravies"
+    },
+    {
+      "id": "nazmi",
+      "name": "Nazmi Khatoon",
+      "gender": "Female",
+      "dob": "10/09/1966",
+      "bio": "Mae dusro ki khidmat kr k khush hoti hun"
+    },
+    {
+      "id": "arshad",
+      "name": "Mohd Arshad",
+      "gender": "Male",
+      "dob": "16/07/1970",
+      "bio": "I have a kind heart, and I make decisions from the heart rather than just the mind. I feel things deeply, care genuinely for people, and always value emotions, loyalty, and sincerity in every relationship.",
+      "spouse": "amina",
+      "children": [
+        "arham",
+        "akram"
+      ]
+    },
+    {
+      "id": "amir",
+      "name": "Mohammed Amir",
+      "gender": "Male",
+      "dob": "31/07/1971",
+      "bio": "Kind hearted, honest, respectful",
+      "spouse": "razia",
+      "children": [
+        "tooba",
+        "taha"
+      ]
     },
     {
       "id": "mohsin",
       "name": "Mohammad Mohsin",
+      "gender": "Male",
+      "dob": "10/04/1973",
+      "bio": "Thhoda Gussay wala and emotional",
       "parent": "mujeeb",
       "spouse": "taiba",
       "children": [
         "asjad",
         "kaab",
         "hidaya"
-      ],
-      "dob": "10/04/1973",
-      "gender": "Male",
-      "bio": "THORA GUSSAY WALA...AND EMOTIONAL"
+      ]
     },
     {
-      "id": "taiba",
-      "name": "Taiba Maryam",
-      "dob": "05/03/1982",
+      "id": "fozia",
+      "name": "Fozia Khatoon",
       "gender": "Female",
-      "bio": "I am a devoted mother of three, whose greatest passion lies in nurturing and guiding my children to grow into successful individuals—both in this life and in their deen. I find purpose in teaching them values, knowledge, and strength, hoping to shape their character and future with care and dedication. As a wife, I deeply cherish my role in supporting my husband, always wanting to see him strong, confident, and successful. My life revolves around love, faith, and the desire to build a family grounded in both worldly achievement and spiritual fulfillment."
+      "dob": "10/01/1976",
+      "bio": "I am jannati"
+    },
+    {
+      "id": "razia",
+      "name": "Razia Khatoon",
+      "gender": "Female",
+      "dob": "15/01/1977",
+      "bio": "I have a strong belief in Allah. I love my dear ones very much",
+      "spouse": "amir",
+      "children": [
+        "tooba",
+        "taha"
+      ]
     },
     {
       "id": "amina",
       "name": "Amina Khatoon",
-      "parent": "mujeeb",
+      "gender": "Female",
+      "dob": "03/07/1981",
+      "bio": "I have a positive attitude and personality, and I always try to care for the happiness of everyone around me.",
       "spouse": "arshad",
       "children": [
         "arham",
         "akram"
-      ],
-      "dob": "03/07/1981",
+      ]
+    },
+    {
+      "id": "taiba",
+      "name": "Taiba Maryam",
       "gender": "Female",
-      "bio": "I have a positive attitude and personality, and I always try to care for the happiness of everyone around me."
+      "dob": "05/03/1982",
+      "bio": "I am a devoted mother of three, whose greatest passion lies in nurturing and guiding my children to grow into successful individuals�both in this life and in their deen. I find purpose in teaching them values, knowledge, and strength, hoping to shape their character and future with care and dedication. As a wife, I deeply cherish my role in supporting my husband, always wanting to see him strong, confident, and successful. My life revolves around love, faith, and the desire to build a family grounded in both worldly achievement and spiritual fulfillment.",
+      "spouse": "mohsin",
+      "children": [
+        "asjad",
+        "kaab",
+        "hidaya"
+      ]
+    },
+    {
+      "id": "mariya",
+      "name": "Mariya Khatoon",
+      "gender": "Female",
+      "dob": "04/12/1983",
+      "bio": "I make fun of myself to entertain others",
+      "spouse": "ziauddin",
+      "children": [
+        "shams",
+        "juveria"
+      ]
     },
     {
       "id": "monis",
       "name": "Mohammad Monis",
+      "gender": "Male",
+      "dob": "04/02/1985",
+      "bio": "I am a patient and calm person, especially in challenging situations",
       "parent": "mujeeb",
       "spouse": "hira",
       "children": [
         "moosa",
         "mustafa"
-      ],
-      "dob": "04/02/1985",
-      "gender": "Male",
-      "bio": "I am a patient and calm person, especially in challenging situations"
-    },
-    {
-      "id": "hira",
-      "name": "Hira Fatima",
-      "dob": "23/12/1988",
-      "gender": "Female",
-      "bio": "Simple patient and strong"
-    },
-    {
-      "id": "mariya",
-      "name": "Mariya Khatoon",
-      "parent": "mujeeb",
-      "spouse": "ziauddin",
-      "children": [
-        "shamsuddin",
-        "juveria"
-      ],
-      "dob": "04/12/1983",
-      "gender": "Female",
-      "bio": "I make fun of myself to entertain others"
-    },
-    {
-      "id": "ziauddin",
-      "name": "Syed Ziauddin Hussain",
-      "dob": "20/04/1985",
-      "gender": "Male",
-      "bio": "Khaye piye zindagi hai"
-    },
-    {
-      "id": "razia",
-      "name": "Razia Khatoon",
-      "parent": "mujeeb",
-      "spouse": "amir",
-      "children": [
-        "ahmed",
-        "tooba"
-      ],
-      "dob": "15/01/1977",
-      "gender": "Female",
-      "bio": "Truthful,honest,caring, loving"
-    },
-    {
-      "id": "amir",
-      "name": "Mohammed Amir",
-      "dob": "31/07/1971",
-      "gender": "Male",
-      "bio": "Kind hearted,honest,respectful"
-    },
-    {
-      "id": "fozia",
-      "name": "Fozia Khatoon",
-      "parent": "mujeeb",
-      "dob": "10/01/1976",
-      "gender": "Female",
-      "bio": "Mae jannati hun"
+      ]
     },
     {
       "id": "anas",
-      "name": "Anas",
+      "name": "Mohammad Anas",
+      "gender": "Male",
+      "dob": "04/012/1985",
+      "bio": "I am a kind person, i love my family and my brothers",
       "parent": "ayaz",
       "spouse": "zulekha",
       "children": [
@@ -225,121 +269,141 @@
       ]
     },
     {
+      "id": "ziauddin",
+      "name": "Syed Ziauddin Hussain",
+      "gender": "Male",
+      "dob": "20/04/1985",
+      "bio": "I carry calmness within me, no matter how loud the situation becomes. I am a good observer, I notice the silence, the energy, and the lessons hidden inside every situation.",
+      "spouse": "mariya",
+      "children": [
+        "shams",
+        "juveria"
+      ]
+    },
+    {
+      "id": "hira",
+      "name": "Hira Fatima",
+      "gender": "Female",
+      "dob": "23/12/1988",
+      "bio": "Simple patient and strong",
+      "spouse": "monis",
+      "children": [
+        "moosa",
+        "mustafa"
+      ]
+    },
+    {
       "id": "zulekha",
-      "name": "Zulekha"
-    },
-    {
-      "id": "dawood",
-      "name": "Dawood",
-      "parent": "anas"
-    },
-    {
-      "id": "ibrahim",
-      "name": "Ibrahim",
-      "parent": "anas"
-    },
-    {
-      "id": "arham",
-      "name": "Arham Rasheed",
-      "parent": "arshad",
-      "dob": "09/01/2004",
-      "gender": "Male",
-      "bio": "I am Arham Rasheed, the first Computer Science Engineer in my khaandaan, and the proud grandson of two brothers....my paternal and maternal grandfathers.....whose patience, strength, and struggles built the foundation of our Khaandaan"
-    },
-    {
-      "id": "akram",
-      "name": "Akram Rasheed",
-      "parent": "arshad",
-      "dob": "03/07/2011",
-      "gender": "Male",
-      "bio": "Caring,sharp minded,merciful,truthful"
+      "name": "Zulekha Anas",
+      "gender": "Female",
+      "dob": "13/02/1996",
+      "bio": "Proud mother and dessert specialist",
+      "spouse": "anas",
+      "children": [
+        "dawood",
+        "ibrahim"
+      ]
     },
     {
       "id": "asjad",
       "name": "Mohammad Asjad",
-      "parent": "mohsin",
+      "gender": "Male",
       "dob": "09/07/2003",
+      "bio": "Son of the most caring human in the world, love my family and care about each and every one of the with my whole heart, happy with life alhumdulillah!",
+      "parent": "mohsin"
+    },
+    {
+      "id": "arham",
+      "name": "Arham Rasheed",
       "gender": "Male",
-      "bio": "Son of the most caring human in the world, love my family and care about each and every one of the with my whole heart, happy with life alhumdulillah!"
-    },
-    {
-      "id": "kaab",
-      "name": "Kaab Anwer",
-      "parent": "mohsin",
-      "dob": "03/11/2008",
-      "gender": "Male",
-      "bio": "I am Kaab Anwer, inshallah the first doctor and hafiz of this khandaan. People say that I am very similar to my grandfather which is a huge compliment for me, inshallah I hope to become like him."
-    },
-    {
-      "id": "hidaya",
-      "name": "Hidaya Mohsin",
-      "parent": "mohsin",
-      "dob": "03/05/2014",
-      "gender": "Female",
-      "bio": "I HAVE 8 BROTHERS"
-    },
-    {
-      "id": "moosa",
-      "name": "Moosa Mujeeb",
-      "parent": "monis",
-      "dob": "16/09/2014",
-      "gender": "Male",
-      "bio": "I love my dad and I look like him"
-    },
-    {
-      "id": "mustafa",
-      "name": "Mustafa Mujeeb",
-      "parent": "monis",
-      "dob": "10/09/2018",
-      "gender": "Male",
-      "bio": "Smart, sharp, cute, and best decision making"
-    },
-    {
-      "id": "shamsuddin",
-      "name": "Syed Shamsuddin Hussain",
-      "parent": "mariya",
-      "dob": "18/08/2006",
-      "gender": "Male",
-      "bio": "Ok hai ji 😁 👍🏻"
-    },
-    {
-      "id": "juveria",
-      "name": "Juveria Fatima",
-      "parent": "mariya",
-      "dob": "22/05/2009",
-      "gender": "Female",
-      "bio": "Thoughtful, direct and self aware"
-    },
-    {
-      "id": "ahmed",
-      "name": "Ahmed Taha",
-      "parent": "razia",
-      "dob": "11/01/2010",
-      "gender": "Male",
-      "bio": "Brave,honest,kind hearted,foodie"
-    },
-    {
-      "id": "naseer",
-      "name": "Naseer",
-      "parent": "anwar"
-    },
-    {
-      "id": "saeed",
-      "name": "Saeed",
-      "parent": "anwar"
-    },
-    {
-      "id": "habibunisa",
-      "name": "Habibunisa",
-      "parent": "anwar"
+      "dob": "09/01/2004",
+      "bio": "I am Arham Rasheed, the first Software Engineer in my khaandaan, and the proud grandson of two brothers....my paternal and maternal grandfathers.....whose patience, strength, and struggles built the foundation of our Khaandaan",
+      "parent": "arshad"
     },
     {
       "id": "tooba",
       "name": "Tooba Amir",
-      "parent": "razia",
-      "dob": "25/06/2005",
       "gender": "Female",
+      "dob": "25/06/2005",
       "bio": "I am a positive, warm person who believes in letting go all negativity. I am focusing on creating a peaceful and successful future to make my parents proud."
+    },
+    {
+      "id": "shams",
+      "name": "Syed Shamsuddin Hussain",
+      "gender": "Male",
+      "dob": "18/08/2006",
+      "bio": "I am Syed Shamsuddin Hussain. I believe every problem arrives with a solution. I am self-confident and I know how to handle things even in the toughest situations. I stay calm, think clearly, and face challenges with strength and patience.",
+      "parent": "ziauddin"
+    },
+    {
+      "id": "kaab",
+      "name": "Kaab Anwer",
+      "gender": "Male",
+      "dob": "03/11/2008",
+      "bio": "I am Kaab Anwer, inshallah the first doctor and hafiz of this khandaan. People say that I am very similar to my grandfather which is a huge compliment for me, inshallah I hope to become like him.",
+      "parent": "mohsin"
+    },
+    {
+      "id": "juveria",
+      "name": "Juveria Fatima",
+      "gender": "Female",
+      "dob": "22/05/2009",
+      "bio": "Thoughtful, direct and self aware",
+      "parent": "ziauddin"
+    },
+    {
+      "id": "taha",
+      "name": "Ahmed taha",
+      "gender": "Male",
+      "dob": "11/01/2010",
+      "bio": "Brave,honest,kind hearted,foodie",
+      "parent": "amir"
+    },
+    {
+      "id": "akram",
+      "name": "Akram Rasheed",
+      "gender": "Male",
+      "dob": "03/07/2011",
+      "bio": "Caring,sharp minded,merciful,truthful"
+    },
+    {
+      "id": "hidaya",
+      "name": "Hidaya Mohsin",
+      "gender": "Female",
+      "dob": "03/05/2014",
+      "bio": "I have 8 brothers",
+      "parent": "mohsin"
+    },
+    {
+      "id": "moosa",
+      "name": "Moosa mujeeb",
+      "gender": "Male",
+      "dob": "16/09/2014",
+      "bio": "I love my dad and I look like him",
+      "parent": "monis"
+    },
+    {
+      "id": "dawood",
+      "name": "Dawood Ayaz",
+      "gender": "Male",
+      "dob": "17/12/2017",
+      "bio": "Electronic knowledge, helping, smart,",
+      "parent": "anas"
+    },
+    {
+      "id": "mustafa",
+      "name": "Mustafa Mujeeb",
+      "gender": "Male",
+      "dob": "10/09/2018",
+      "bio": "Smart , sharp , cute, and best decision making",
+      "parent": "monis"
+    },
+    {
+      "id": "ibrahim",
+      "name": "Ibrahim Ayaz",
+      "gender": "Male",
+      "dob": "12/09/2023",
+      "bio": "Cute ,  joyful , energetic , sincere"
     }
   ]
 }

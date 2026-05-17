@@ -1,0 +1,52 @@
+ID,Full Name,Gender,DOB,Father’s Name,Mother’s Name,Grandfather’s Name,Great Grandfather’s Name,Married,Spouse Name,Children Names,Family Branch,Bio,
+anwar,Anwar Ali,Male,Early 90s,Hukumat Ali,null,null,null,Yes,Iltifatunisa,"Rasheed, Mujeeb, Ayaz, Wasiqunnisa, Naseer, Saeed, Habibunisa",Anwar Family Line,"I am Anwar Ali, and all of you are part of my bloodline, whether from my sons’ side or my daughters’ side.
+",
+iltifatunisa,Iltifatunisa,Female,Early 90s,null,null,null,null,Yes,Anwar Ali,null,Anwar Family Line,"I am Iltifatunisa. Whether through you or your children, my bloodline, love, and memories will continue through generations.
+",
+rasheed,Mohammad Rasheed,Male,Mid 90s,Anwar Ali,Iltifatunisa,null,null,Yes,Sayyada Khatoon,"Arshad, Nazmi, Hashmi, Saira",Rasheed Family Line,"I am Mohammad Rasheed. I am silent and hardworking. I deeply love my family and my people, and above everything, my brothers mean the most to me.
+",
+mujeeb,Mohammad Mujeeb,Male,Mid 90s,Anwar Ali,Iltifatunisa,null,null,Yes,Qamar Jahan,"Mohsin, Amina, Monis, Mariya, Razia, Fozia",Anwar Family Line,"I am Mujeeb. I believe in Allah and I put all my trust in Him. He is my greatest support, my peace, and my strength in every situation.
+",
+wasiqunnisa,Wasiqunnisa,Female,Mid 90s,Anwar Ali,Iltifatunisa,null,null,Yes,Rehbar Ali,null,Anwar Family Line,I have 3 brothers,
+nazira,Nazira Bano,Female,Mid 90s,null,null,null,null,Yes,Mohammad Ayaz,null,Ayaz Family Line,"I am a hardworking, strong, caring, and kind-hearted woman who always stands with love, patience, and strength for the people I care about.
+",
+ayaz,Mohammad Ayaz,Male,Mid 90s,Anwar Ali,Iltifatunisa,null,null,Yes,Nazira Bano,Anas,Anwar Family Line,"I am Mohammad Ayaz. I have beautiful calligraphy, and I love my brothers more than myself. Their happiness gives me peace, and seeing them smile brings comfort to my heart.
+",
+sayyada,Sayyada Khatoon,Female,Mid 90s,null,null,null,null,Yes,Mohammad Rasheed,null,Rasheed Family Line,"I am a hardworking woman, and I am sabir by nature. I spend most of my time working and praying to my Rabb, finding peace and strength through faith and patience.
+",
+saira,Saira,Female,Late 90s,Mohammad Rasheed,Sayyada Khatoon,Anwar Ali,null,No,null,null,Rasheed Family Line,I am the one who went to jannah in young age ,
+qamar,Qamar Jahan,Female,01-01-1957,Mohd Ilyas,Aqeela Khatoon,Mohd Rasheed,null,Yes,Mohammad Mujeeb,"Amina, Mohsin, Monis, Fozia, Razia, Mariya",Ilyas Family Line,I have a habit of forgiving people,
+hashmi,Hashmi,Female,30-06-1962,Mohd Rasheed,Sayyada Khatoon,Anwar Ali,Hukoomat Ali,Yes,Shamshad Ali Khan,null,Rasheed Family Line,I am best at making non veg gravies,
+nazmi,Nazmi Khatoon,Female,10-09-1966,Mohd Rasheed,Sayyada Khatoon,Anwar Ali,Hukoomat Ali,No,null,null,Rasheed Family Line,Mae dusro ki khidmat kr k khush hoti hun,
+arshad,Mohd Arshad,Male,16-07-1970,Mohd Rasheed,Sayyada Khatoon,Anwar Ali,Hukumat Ali,Yes,Amina Khatoon,"Arham Rasheed, Akram Rasheed",Rasheed Family Line,"I have a kind heart, and I make decisions from the heart rather than just the mind. I feel things deeply, care genuinely for people, and always value emotions, loyalty, and sincerity in every relationship.
+",
+amir,Mohammed Amir,Male,31-07-1971,Mohammed Usman,Abida Khatoon,Sheikh Shamshad Ali,Sheikh Khalimullah,Yes,Razia Khatoon,"Tooba Amir, Ahmed Taha",Mohammed Usman Family Line,"Kind hearted, honest, respectful",
+mohsin,Mohammad Mohsin,Male,10-04-1973,Mohammad Mujeeb,Qamar Fatima,Anwar Ali,Huqumat Ali,Yes,Taiba Maryam,"Mohammad Asjad, Kaab Anwer, Hidaya Mohsin",Mujeeb Family Line,Thhoda Gussay wala and emotional ,
+fozia,Fozia Khatoon,Female,10-01-1976,Mohd Mujeeb,Qamar Jahan,Anwar Ali,Hukoomat Ali,No,null,null,Mujeeb Family Line,I am jannati,
+razia,Razia Khatoon,Female,15-01-1977,Mohammed Mujeeb Hashmi,Qamar Jahan,Anwar Ali,Shamshad Ali,Yes,Mohammed Amir,"Tooba Amir, Ahmed Taha",Mujeeb Family Line,"Truthful, honest, caring, loving",
+amina,Amina Khatoon,Female,03-07-1981,Mohd Mujeeb,Kamar Jahan,Anwar Ali,Hukumat Ali,Yes,Mohd Arshad,"Arham Rasheed, Akram Rasheed",Mujeeb Family Line,"I have a positive attitude and personality, and I always try to care for the happiness of everyone around me.",
+taiba,Taiba Maryam,Female,05-03-1982,Dr M G Siddiqui,Rizwana Saulat,Ilyas,Mohd Rasheed,Yes,Mohammad Mohsin,"Mohammad Asjad, Kaab Anwer, Hidaya Mohsin",Mujeeb Family Line,"I am a devoted mother of three, whose greatest passion lies in nurturing and guiding my children to grow into successful individuals—both in this life and in their deen. I find purpose in teaching them values, knowledge, and strength, hoping to shape their character and future with care and dedication. As a wife, I deeply cherish my role in supporting my husband, always wanting to see him strong, confident, and successful. My life revolves around love, faith, and the desire to build a family grounded in both worldly achievement and spiritual fulfillment.",
+mariya,Mariya Khatoon,Female,04-12-1983,Muhammad Mujeeb Hashmi,Qamar Fatima,Anwer Ali,Hukumat Ali,Yes,Syed Ziauddin Hussain,"Syed Shamsuddin Hussain, Juveria Fatima",Mujeeb Family Line,I make fun of myself to entertain others,
+monis,Mohammad Monis,Male,04-02-1985,Mohammad Mujeeb,Qamar Jahan,Anwar Ali,Hukumat Ali,Yes,Hira Fatima,"Moosa Mujeeb, Mustafa Mujeeb",Mujeeb Family Line,"I am a patient and calm person, especially in challenging situations",
+anas,Mohammad Anas,Male,04/012/1985,Mohammad Ayaz,Nazira Bano,Anwar Ali,null,Yes,Zulekha Anas,"Dawood Ayaz, Ibrahim Ayaz",Ayaz Family Line,"I am a kind person, i love my family and my brothers",
+ziauddin,Syed Ziauddin Hussain,Male,20-04-1985,Syed Qayamuddin Hussain,Faheem Akhtar,Syed Saifuddin Hussain,Syed Qamruddin Hussain,Yes,Mariya Khatoon,"Syed Shamsuddin Hussain, Juveria Fatima",Syed Family Line,"I carry calmness within me, no matter how loud the situation becomes. I am a good observer, I notice the silence, the energy, and the lessons hidden inside every situation.
+",
+hira,Hira Fatima,Female,23-12-1988,Mohd Ghayas,Rizwana Saulat,Ilyas,Mohd Rasheed,Yes,Mohammad Monis,"Moosa Mujeeb, Mustafa Mujeeb",Ghayas Family Line,Simple patient and strong,
+zulekha,Zulekha Anas,Female,13-02-1996,Mohd Arib,Tanveer Begum,Yaqqub Ahmed,Moosa Mua,Yes,Mohammad Anas,"Dawood Ayaz, Ibrahim Ayaz",Ayaz Family Line,Proud mother and dessert specialist,
+asjad,Mohammad Asjad,Male,09-07-2003,Mohammad Mohsin ,Taiba Maryam ,Mohammad Mujeeb ,Anwer Ali ,No,,,Mujeeb Family Line,"Son of the most caring human in the world, love my family and care about each and every one of the with my whole heart, happy with life alhumdulillah! ",
+arham,Arham Rasheed,Male,09-01-2004,Mohd Arshad,Amina Khatoon,Mohd Rasheed,Anwar Ali,No,,,Rasheed Family Line,"I am Arham Rasheed, the first Software Engineer in my khaandaan, and the proud grandson of two brothers....my paternal and maternal grandfathers.....whose patience, strength, and struggles built the foundation of our Khaandaan",
+tooba,Tooba Amir ,Female,25-06-2005,Mohammad Aamir ,Razia Khatoon,Mohammad Usman,Mohammad Usman,No,,,Amir Family Line,"I am a positive, warm person who believes in letting go all negativity. I am focusing on creating a peaceful and successful future to make my parents proud.",
+shams,Syed Shamsuddin Hussain ,Male,18-08-2006,Syed Ziauddin Hussain ,Mariya Khatoon,Syed Qayamuddin Hussain,Syed Saifuddin Hussain ,No,,,Syed Qayamuddin Hussain Family Line,"I am Syed Shamsuddin Hussain. I believe every problem arrives with a solution. I am self-confident and I know how to handle things even in the toughest situations. I stay calm, think clearly, and face challenges with strength and patience.
+",
+kaab,Kaab Anwer,Male,03-11-2008,Mohammad Mohsin,Taiba Maryam,Mohammad Mujeeb,Anwer Ali,No,,,Mujeeb Family Line,"I am Kaab Anwer, inshallah the first doctor and hafiz of this khandaan. People say that I am very similar to my grandfather which is a huge compliment for me, inshallah I hope to become like him. ",
+juveria,Juveria Fatima ,Female,22-05-2009,Syed Ziauddin Hussain ,Mariya Khatoon ,Qayamuddin hussain ,Syed Saifuddin Hussain ,No,,,Syed Qayamuddin hussain Family Line,"Thoughtful, direct and self aware ",
+taha,Ahmed taha,Male,11-01-2010,Mohammed Amir,Razia Khatoon ,Mohammed Usman,Shamshad ali,No,,,Usman family line,"Brave,honest,kind hearted,foodie",
+akram,Akram Rasheed,Male,03-07-2011,Mohammad Arshad,Amina Khatoon,Mohammad Rasheed,Anwar Ali,No,,,Rasheed Family Line,"Caring,sharp minded,merciful,truthful ",
+hidaya,Hidaya Mohsin,Female,03-05-2014,Mohammad Mohsin,Taiba Maryam,Mohammad Mujeeb,Anwar Ali,No,,,Mujeeb Family Line,I have 8 brothers,
+moosa,Moosa mujeeb,Male,16-09-2014,Mohammad monis,Hira fatima,Mohammad Mujeeb ,Anwar Ali,No,,,Mujeeb Family Line,I love my dad and I look like him,
+dawood,Dawood Ayaz,Male,17-12-2017,Mohammad Anas,Zulekha anas,Mohammad Ayaz,Anwar Ali,No,,,Ayaz Family Line,"Electronic knowledge, helping, smart, ",
+mustafa,Mustafa Mujeeb ,Male,10-09-2018,Mohammad monis,Hira fatima,Mohammad mujeeb,Anwar Ali,No,,,Mujeeb Family Line,"Smart , sharp , cute, and best decision making ",
+ibrahim,Ibrahim Ayaz,Male,12-09-2023,Mohd anas,Zulekha anas ,Mohammad Ayaz,Anwar Ali,No,,,Ayaz Family Line,"Cute ,  joyful , energetic , sincere ",
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,

@@ -54,7 +54,7 @@ export default function Hero() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-background">
+    <section id="hero" ref={containerRef} className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-transparent">
       
       {/* ─── Ambient Scrollytelling Background (SVG Self-Drawing) ─── */}
       <div className="absolute inset-0 z-0 flex items-center justify-center opacity-15 pointer-events-none mix-blend-color-dodge">
@@ -172,10 +172,18 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 1 }}
-        className="absolute bottom-10 z-10 flex flex-col items-center gap-3"
+        className="absolute bottom-12 z-10 flex flex-col items-center gap-6"
       >
-        <span className="text-[9px] uppercase tracking-[0.4em] text-gold/60 font-light">Scroll to Discover</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent animate-pulse-gold" />
+        <span className="text-xs md:text-sm uppercase tracking-[0.5em] text-gold/80 font-light gold-glow">Scroll to Discover</span>
+        
+        {/* Aesthetic Scroll Pill */}
+        <div className="w-[34px] h-[56px] rounded-full border-2 border-gold/40 flex items-start justify-center p-2 shadow-[0_0_15px_rgba(212,175,55,0.2)] bg-black/20 backdrop-blur-sm">
+          <motion.div
+            animate={{ y: [0, 24, 0], opacity: [1, 0.3, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-[4px] h-[10px] bg-gold rounded-full shadow-[0_0_10px_#d4af37]"
+          />
+        </div>
       </motion.div>
     </section>
   );
