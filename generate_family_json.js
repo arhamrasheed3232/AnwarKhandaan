@@ -154,6 +154,7 @@ members.forEach(m => {
           name: formattedName,
           gender: childId.toLowerCase().includes('nisa') || childId.toLowerCase().includes('fatima') ? 'Female' : 'Male',
           parent: m.id,
+          dob: m.id === 'anwar' ? 'Mid 90s' : undefined,
           bio: `Carrying forward the family legacy.`
         });
       }

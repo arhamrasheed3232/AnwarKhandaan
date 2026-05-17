@@ -420,6 +420,7 @@
       "name": "Naseer",
       "gender": "Male",
       "parent": "anwar",
+      "dob": "Mid 90s",
       "bio": "Carrying forward the family legacy."
     },
     {
@@ -427,6 +428,7 @@
       "name": "Saeed",
       "gender": "Male",
       "parent": "anwar",
+      "dob": "Mid 90s",
       "bio": "Carrying forward the family legacy."
     },
     {
@@ -434,6 +436,7 @@
       "name": "Habibunisa",
       "gender": "Female",
       "parent": "anwar",
+      "dob": "Mid 90s",
       "bio": "Carrying forward the family legacy."
     }
   ]
